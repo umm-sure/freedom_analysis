@@ -197,9 +197,9 @@ def imputing_model(base_df, column: str, num_feats = 100, split = 15):
     y_pred = clf.predict(X_test)
     train_score = metric(y_train, clf.predict(X_train))
     test_score = metric(y_test, y_pred)
-    st.write(f"**Training {column}**")
-    st.write("Train Metric:", train_score)
-    st.write("Test Metric:", test_score)
+    st.write(f"**Training on {column}**")
+    st.write("Train:", train_score)
+    st.write("Test:", test_score)
 
     print("Importances for", column)
 
@@ -231,7 +231,7 @@ def run_model_for_region(region_name):
     model, top_features, corrs = imputing_model(region_data, 'e_fh_status', split=15)
     status = ['Free', 'Partially Free', 'Not Free']
     d = 3
-    fig3, ax3 = plt.subplots(figsize=(20, 14))
+    fig3, ax3 = plt.subplots(figsize=(20, 14), dpi=400)
     plot_tree(
         model,
         filled=True,
