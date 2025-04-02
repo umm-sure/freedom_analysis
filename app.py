@@ -259,13 +259,11 @@ def main():
                                          "Middle East & North Africa (MENA)", "South Asia", "East Asia", "Southeast Asia", "Oceania"))
 
     # --- Parameter Inputs ---
-    st.subheader("t-SNE Parameters")
-    perp = st.slider("Perplexity", min_value=5, max_value=100, value=50, step=5)
+    perp = 50
     ini = st.selectbox("Initialization", ("pca", "random"))
     target_col = st.selectbox("Target Column", ("pred_status", "e_fh_status"))
 
-    st.subheader("Decision Tree Parameters")
-    split = st.slider("Minimum Split Requirement for Nodes", min_value=5, max_value=50, value=15, step=5)
+    split = 15
 
     # --- Run t-SNE on button click ---
     if st.button("Run t-SNE and Decision Tree"):
