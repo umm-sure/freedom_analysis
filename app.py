@@ -271,7 +271,7 @@ def main():
     if st.button("Run t-SNE and Decision Tree"):
         st.write(f"Running t-SNE with Perplexity={perp} and init='{ini}' on target '{target_col}'...")
         compute_tsne_embeddings_and_plots(df, perp=perp, ini=ini, target=target_col, r = region)
-        st.write("Running Decision Tree Model...")
+        st.write(f"Running Decision Tree Model with minimum_split={split} on region={region}...")
         run_model_for_region(region, split)
 
 
