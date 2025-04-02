@@ -225,10 +225,10 @@ def filter_by_region(df, region_name):
         return df
     return df[df['country_name'].isin(regions[region_name])]
 
-def run_model_for_region(region_name):
+def run_model_for_region(region_name, sp):
     region_data = filter_by_region(vdem_pop, region_name)
     print(f"Running model for {region_name}...")
-    model, top_features, corrs = imputing_model(region_data, 'e_fh_status', split=15)
+    model, top_features, corrs = imputing_model(region_data, 'e_fh_status', split=sp)
     status = ['Free', 'Partially Free', 'Not Free']
     d = 3
     fig3, ax3 = plt.subplots(figsize=(20, 14), dpi=400)
@@ -264,12 +264,15 @@ def main():
     ini = st.selectbox("Initialization", ("pca", "random"))
     target_col = st.selectbox("Target Column", ("pred_status", "e_fh_status"))
 
+    st.subheader("Decision Tree Parameters")
+    split = st.slider("Minimum Split Requirement for Nodes", min_value=5, max_value=50, value=15, step=5)
+
     # --- Run t-SNE on button click ---
     if st.button("Run t-SNE and Decision Tree"):
         st.write(f"Running t-SNE with Perplexity={perp} and init='{ini}' on target '{target_col}'...")
         compute_tsne_embeddings_and_plots(df, perp=perp, ini=ini, target=target_col, r = region)
         st.write("Running Decision Tree Model...")
-        run_model_for_region(region)
+        run_model_for_region(region, split)
 
 
 if __name__ == "__main__":
