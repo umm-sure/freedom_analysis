@@ -1,0 +1,9 @@
+streamlit
+pandas
+numpy
+matplotlib.pyplot
+sklearn.manifold.TSNE
+sklearn.tree
+sklearn.metrics
+sklearn.model_selection
+plotly.express
