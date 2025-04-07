@@ -255,7 +255,7 @@ def main():
     df = pd.read_csv("model_dataset_cleaned.csv")
 
     # --- General Parameters -----
-    region = st.selectbox('Region To analyze: ', ("Global", "North America", "Latin America", "Europe", "Sub-Saharan Africa", 
+    region = st.selectbox('Region To analyze: ', ("North America", "Latin America", "Europe", "Sub-Saharan Africa", 
                                          "Middle East & North Africa (MENA)", "South Asia", "East Asia", "Southeast Asia", "Oceania"))
 
     # --- Parameter Inputs ---
