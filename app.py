@@ -73,6 +73,7 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
     else:
         data = d.copy()
     countries = data['country_name']
+    years = data['year']
     data = data.select_dtypes(include='number')
     data = data.dropna(subset=[target]) 
     targets = data[target]
@@ -95,6 +96,7 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
     # --- 3D EMBEDDING ---
     X3_embedded = TSNE(n_components=3, learning_rate='auto', init=ini, perplexity=perp, random_state=17).fit_transform(X)
     df_3d = pd.DataFrame({
+        'year': years,
         'x': X3_embedded[:, 0],
         'y': X3_embedded[:, 1],
         'z': X3_embedded[:, 2],
