@@ -116,7 +116,6 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
     )
     fig3.update_traces(marker=dict(size=4, opacity=0.7))
     fig3.update_layout(
-        hoverlabel=dict(bgcolor="white", font_size=12),
         width = 1000,
         height = 800,
         scene=dict(
@@ -126,8 +125,7 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
         ),
         legend_title_text='Freedom'
     )
-    #st.plotly_chart(fig3)
-    fig3.show()
+    st.plotly_chart(fig3)
 
     # Return embeddings if needed elsewhere
     return X_embedded, X3_embedded
