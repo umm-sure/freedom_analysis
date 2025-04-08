@@ -111,6 +111,7 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
         z='z',
         color='label',
         hover_name='country',
+        hover_data=['year'],
         title='Interactive 3D t-SNE'
     )
     fig3.update_traces(marker=dict(size=4, opacity=0.7))
