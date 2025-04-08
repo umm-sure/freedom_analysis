@@ -110,7 +110,7 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
         y='y',
         z='z',
         color='label',
-        color_continuous_scale='bwr',
+        color_continuous_scale='Pinkyl',
         hover_name='country',
         hover_data=['year'],
         title='Interactive 3D t-SNE'
