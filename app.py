@@ -72,10 +72,10 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
         data = d[d['country_name'].isin(regions[r])]
     else:
         data = d.copy()
+    data = data.dropna(subset=[target]) 
     countries = data['country_name']
     years = data['year']
     data = data.select_dtypes(include='number')
-    data = data.dropna(subset=[target]) 
     targets = data[target]
     data = data.drop(columns=[target])
 
