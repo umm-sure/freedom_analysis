@@ -116,6 +116,7 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
     )
     fig3.update_traces(marker=dict(size=4, opacity=0.7))
     fig3.update_layout(
+        hoverlabel=dict(bgcolor="white", font_size=12),
         width = 1000,
         height = 800,
         scene=dict(
