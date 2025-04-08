@@ -126,7 +126,8 @@ def compute_tsne_embeddings_and_plots(d, perp=50, ini='pca', target='pred_status
         ),
         legend_title_text='Freedom'
     )
-    st.plotly_chart(fig3)
+    #st.plotly_chart(fig3)
+    fig3.show()
 
     # Return embeddings if needed elsewhere
     return X_embedded, X3_embedded
