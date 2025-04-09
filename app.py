@@ -179,7 +179,7 @@ def imputing_model(base_df, column: str, num_feats = 100, split = 15):
     #making sure the training df has no nulls for column to be imputed
     df = base_df.dropna(subset=[column])
     top, corrs = top_correlations(base_df, column)
-    filtered_top = print_correlations(top, corrs, 100, 9200)
+    filtered_top = print_correlations(top, corrs, 100, 9259)
 
     # Exclude high-level variables that dominate feature importance
     excluded_features = [
