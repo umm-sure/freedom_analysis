@@ -195,7 +195,7 @@ def imputing_model(base_df, column: str, num_feats = 100, split = 15):
     y = df[column]
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=7) #20% saved for test
-    clf = model(min_samples_split=20, random_state=42) if model is DecisionTreeClassifier else model(min_samples_split=20, random_state=42)
+    clf = model(min_samples_split=15, random_state=42) if model is DecisionTreeClassifier else model(min_samples_split=15, random_state=42)
 
     clf.fit(X_train, y_train)
     y_pred = clf.predict(X_test)
