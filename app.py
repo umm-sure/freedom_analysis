@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 import plotly.express as px
 
 vdem_pop = pd.read_csv("vdem_pop.csv")
-#np.random.seed(7)
+np.random.seed(7)
 
 regions = {
     "North America": [
