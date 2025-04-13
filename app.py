@@ -7,6 +7,7 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 import plotly.express as px
+import regex as re
 
 vdem_pop = pd.read_csv("vdem_pop.csv")
 np.random.seed(7)
