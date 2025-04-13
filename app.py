@@ -235,17 +235,35 @@ def run_model_for_region(region_name, sp):
     model, top_features, corrs = imputing_model(region_data, 'e_fh_status', split=sp)
     status = ['Free', 'Partially Free', 'Not Free']
     d = 3
-    fig3, ax3 = plt.subplots(figsize=(20, 14), dpi=400)
-    plot_tree(
-        model,
-        filled=True,
-        feature_names=top_features,
-        max_depth=d,
-        class_names=status,
-        ax=ax3
-    )
-    ax3.set_title(f"Decision Tree ({region_name})", size=16)
-    st.pyplot(fig3)
+    colors = ['mediumorchid', 'thistle', 'lime']
+    
+    fig, ax1 = plt.subplots(figsize=[25, 12], dpi=600)
+
+    # this took way too long to figure out
+    
+    artists = plot_tree(model, feature_names=top_features, class_names=status,
+                             filled=False, rounded=True, max_depth=d, ax=ax1, node_ids=True)
+    for artist in artists:
+        if artist.get_bbox_patch():
+            label = artist.get_text()
+            id = re.search(r'node #(\d+)', label) #regex magic
+    
+            if id:
+                node_id = int(id.group(1))
+                value = model.tree_.value[node_id][0]
+                impurity = model.tree_.impurity[node_id]
+                majority_class = np.argmax(value)
+    
+                r, g, b = to_rgb(colors[majority_class])
+                f = impurity * 1.5 #normalizing for 3 classes
+                artist.get_bbox_patch().set_facecolor((
+                    f + (1 - f) * r,
+                    f + (1 - f) * g,
+                    f + (1 - f) * b
+                ))
+                artist.get_bbox_patch().set_edgecolor('black')
+    ax1.set_title(f"Decision Tree ({region_name})", size=16)
+    st.pyplot(fig)
     return model, top_features, corrs
 
 
