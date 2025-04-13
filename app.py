@@ -8,6 +8,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 import plotly.express as px
 import regex as re
+from matplotlib.colors import ListedColormap, to_rgb
 
 vdem_pop = pd.read_csv("vdem_pop.csv")
 np.random.seed(7)
