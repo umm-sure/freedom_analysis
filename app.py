@@ -11,6 +11,7 @@ import regex as re
 from matplotlib.colors import ListedColormap, to_rgb
 
 vdem_pop = pd.read_csv("vdem_pop.csv")
+vdem = pd.read_csv("vdem_trunc.csv")
 np.random.seed(7)
 
 regions = {
@@ -156,7 +157,7 @@ def print_correlations(top, corr_values, num, count_flag=0):
     """
     filtered_top = []
     for col in top[:num]:
-        if vdem_pop[col].count() > count_flag:
+        if vdem[col].count() > count_flag:
             #print(f"{col}: {corr_values[col]:.4f};                    " + "Count: " + str(vdem[col].count()))
             filtered_top.append(col)
     return filtered_top
