@@ -10,8 +10,8 @@ import plotly.express as px
 import regex as re
 from matplotlib.colors import ListedColormap, to_rgb
 
-vdem_pop = pd.read_csv("vdem_pop.csv")
-vdem = pd.read_csv("vdem_trunc.csv")
+vdem_pop = pd.read_csv("vdem_pop.csv", low_memory=False)
+vdem = pd.read_csv("vdem_trunc.csv", low_memory=False)
 np.random.seed(7)
 
 regions = {
