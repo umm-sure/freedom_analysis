@@ -188,7 +188,7 @@ def imputing_model(base_df, column: str, num_feats = 100, split = 15):
     excluded_features = [
       'v2x_api', 'v2x_libdem', 'v2x_mpi', 'e_lexical_index',
       'v2x_accountability', 'v2x_partipdem', 'v2x_clpol',
-      'v2x_veracc', 'v2x_frassoc_thick', 'v2x_delibdem', 'v2x_liberal'
+      'v2x_veracc', 'v2x_frassoc_thick', 'v2x_delibdem'
         ]
 
     filtered_top = [feat for feat in filtered_top if feat not in excluded_features]
